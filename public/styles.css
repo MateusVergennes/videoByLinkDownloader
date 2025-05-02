@@ -1,0 +1,145 @@
+/* ---------- RESET BÁSICO ------------------------------------------------ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* corpo ------------------------------------------------------------------ */
+html,
+body {
+    height: 100%;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #0e0e11;
+    /* preto-grafite         */
+    color: #e4e4e7;
+    /* cinza-claro           */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.45;
+}
+
+/* cartão principal ------------------------------------------------------- */
+main {
+    width: 100%;
+    max-width: 460px;
+    background: #18181c;
+    /* cinza topo cartão     */
+    border: 1px solid #23232a;
+    /* contorno sutil        */
+    border-radius: 12px;
+    padding: 36px 32px 40px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .4);
+}
+
+/* título ----------------------------------------------------------------- */
+h1 {
+    font-size: 1.45rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 28px;
+    color: #fff;
+}
+
+/* campos ----------------------------------------------------------------- */
+input,
+select,
+button {
+    appearance: none;
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px 14px;
+    border: 1px solid #2a2a33;
+    border-radius: 8px;
+    background: #101014;
+    color: #e4e4e7;
+    outline: none;
+    transition: border .2s, background .2s;
+}
+
+input:focus,
+select:focus {
+    border-color: #4f46e5;
+    /* roxo-indigo           */
+}
+
+input {
+    margin-bottom: 14px;
+}
+
+select {
+    margin-bottom: 20px;
+}
+
+/* botão ------------------------------------------------------------------ */
+button {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    cursor: pointer;
+    transition: transform .15s, box-shadow .15s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+/* status / mensagens ----------------------------------------------------- */
+#status {
+    margin-top: 18px;
+    min-height: 1.4em;
+    font-size: .95rem;
+}
+
+#status.error {
+    color: #f87171;
+}
+
+/* vermelho claro   */
+#status.success {
+    color: #4ade80;
+}
+
+/* verde claro      */
+
+/* links gerados pelo JS (ex.: download) ---------------------------------- */
+a {
+    color: #60a5fa;
+    /* azul “link”         */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* scrollbar (webkit) opcional ------------------------------------------- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0e0e11;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2c2c37;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3d3d4a;
+}

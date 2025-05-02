@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Baixar vídeo do YouTube</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <main>
+        <h1>Baixar vídeo do YouTube</h1>
+
+        <form id="form">
+            <input id="url" type="url" placeholder="https://youtu.be/..." required />
+
+            <select id="quality">
+                <option value="low">Leve (360p)</option>
+                <option value="medium" selected>Médio (720p)</option>
+                <option value="high">Alto (1080p ou maior)</option>
+            </select>
+
+            <button type="submit">Baixar</button>
+        </form>
+
+        <p id="status"></p>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
