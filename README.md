@@ -1,7 +1,5 @@
 # Video-by-Link Downloader  
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-online-4ade80?style=for-the-badge&logo=vercel&logoColor=white)](https://videobylinkdownloader.onrender.com)
-
 Aplicação full-stack em **Node 20 + Express** que faz download de vídeos públicos do YouTube já em `.mp4`, com áudio e vídeo mesclados via **yt-dlp + ffmpeg**.  
 Interface estática em HTML/CSS/JS (tema escuro), nenhuma dependência de framework no client.
 
