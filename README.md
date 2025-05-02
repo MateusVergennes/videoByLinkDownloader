@@ -32,6 +32,7 @@ npm ci
 
 # inicia em http://localhost:3000
 node server.js
+```
 
 ### Variáveis opcionais
 
