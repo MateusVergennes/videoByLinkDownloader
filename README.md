@@ -34,6 +34,18 @@ npm ci
 node server.js
 ```
 
+### Via **Docker**
+
+```bash
+# Construir a imagem
+docker build -t vblink .
+
+# Executar, expondo a porta 3000 do container na 4000 local
+docker run --rm -p 4000:3000 vblink
+```
+# Depois abra http://localhost:4000 no navegador
+
+
 ### Variáveis opcionais
 
 | Variável de ambiente             | Padrão         | Para quê serve                                                                    |
@@ -43,26 +55,6 @@ node server.js
 | `GH_TOKEN`                       | _(vazio)_      | Personal-Access-Token do GitHub para contornar *API rate-limit* do `youtube-dl-exec` no **npm install**. |
 | `YOUTUBE_DL_SKIP_PYTHON_CHECK`   | `1`            | Pula a checagem de “python” durante o *postinstall* de `youtube-dl-exec`; já definido no Dockerfile. |
 | `QUALITY_MAP_LOW/MEDIUM/HIGH`    | hard-coded     | Se quiser alterar filtros de resolução, basta editar o objeto `QUALITY_MAP` em `server.js`. |
-
----
-
-## ☁️ Deploy gratuito (Render)
-
-### A. Usar **Dockerfile** (recomendado)
-
-1. **New → Web Service → Docker**  
-2. *Build Args* (opcional)  
-   * `GH_TOKEN=<seu-token-github>`  
-3. Deploy e aguarde; URL final será algo como:
-
-   `https://videobylinkdownloader.onrender.com`
-
-### B. Usar ambiente **Node** (sem Docker)
-
-1. Crie serviço **Node**.  
-2. *Build Command*: `npm ci`  
-3. *Start Command*: `node server.js`  
-4. Adicione a env `GH_TOKEN` (PAT GitHub) para evitar rate-limit.
 
 ---
 
