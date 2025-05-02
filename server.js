@@ -124,7 +124,7 @@ function sweepOutput() {
 }
 
 /* executa já na largada */
-sweepOutput();
+sweepOutput(); 
 
 /* e depois a cada 1 h */
 setInterval(sweepOutput, ONE_HOUR);
