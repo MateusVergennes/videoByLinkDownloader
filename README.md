@@ -3,6 +3,9 @@
 Aplicação full-stack em **Node 20 + Express** que faz download de vídeos públicos do YouTube já em `.mp4`, com áudio e vídeo mesclados via **yt-dlp + ffmpeg**.  
 Interface estática em HTML/CSS/JS (tema escuro), nenhuma dependência de framework no client.
 
+![2025-05-01 23-03-16](https://github.com/user-attachments/assets/690472b0-f37c-4018-a5f3-7a91a940a8ae)
+
+
 ---
 
 ## ✨ Funcionalidades
