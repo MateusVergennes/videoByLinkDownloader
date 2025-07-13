@@ -62,10 +62,11 @@ app.post("/download", async (req, res) => {
     const filePath = path.join(downloadDir, filename);
 
     try {
-        // Adiciona delay aleatório antes de cada download
-        await randomDelay();
+        // Delay aleatório (1-4 segundos)
+        await new Promise(resolve =>
+            setTimeout(resolve, Math.floor(Math.random() * 3000) + 1000));
 
-        // Seleciona user-agent aleatório
+        // User-agent aleatório
         const randomUserAgent = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
 
         await ytDlp(url, {
@@ -77,21 +78,28 @@ app.post("/download", async (req, res) => {
             noWarnings: true,
             addHeader: [
                 "referer:youtube.com",
-                `user-agent:${randomUserAgent}`  // User-agent rotativo
+                `user-agent:${randomUserAgent}`
             ],
             restrictFilenames: true,
             quiet: true,
-            // Adiciona configurações extras para evitar bloqueios
+            // Configurações atualizadas:
             retries: 3,
             fragmentRetries: 3,
-            throttleRate: '500K'
+            socketTimeout: 30000,  // 30 segundos
+            forceIpv4: true,       // Evita problemas com IPv6
+            limitRate: '500K'      // Limita velocidade (opção correta)
         });
 
         res.json({ fileUrl: `/downloads/${filename}` });
     } catch (err) {
-        console.error('Erro no download:', err);
+        console.error('Erro no download:', {
+            message: err.message,
+            stderr: err.stderr,
+            command: err.command
+        });
+
         res.status(500).json({
-            error: "Falha no download.",
+            error: "Falha no download",
             details: err.stderr || err.message
         });
     }
