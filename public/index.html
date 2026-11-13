@@ -12,18 +12,28 @@
         <h1>Baixar vídeos</h1>
 
         <form id="form">
-            <input id="url" type="url" placeholder="https://youtu.be/..." required />
+            <textarea id="urls" rows="5" required
+                placeholder="Cole um ou vários links (um por linha)&#10;https://youtu.be/...&#10;https://youtu.be/..."></textarea>
 
             <select id="quality">
                 <option value="low">Leve (360p)</option>
                 <option value="medium" selected>Médio (720p)</option>
-                <option value="high">Alto (1080p ou maior)</option>
+                <option value="high">Alto (até 1080p, mp4 compatível)</option>
+                <option value="max">Máxima (4K/8K se houver)</option>
             </select>
+
+            <label class="parallel">
+                Downloads simultâneos
+                <input id="parallel" type="number" min="1" max="10" value="3" />
+                <small>(sugerido: 3)</small>
+            </label>
 
             <button type="submit">Baixar</button>
         </form>
 
         <p id="status"></p>
+
+        <ul id="jobs"></ul>
     </main>
 
     <script src="app.js"></script>

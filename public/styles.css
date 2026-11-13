@@ -10,7 +10,7 @@
 /* corpo ------------------------------------------------------------------ */
 html,
 body {
-    height: 100%;
+    min-height: 100%;
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     background: #0e0e11;
     /* preto-grafite         */
@@ -23,9 +23,13 @@ body {
 }
 
 /* cartão principal ------------------------------------------------------- */
+body {
+    padding: 32px 16px;
+}
+
 main {
     width: 100%;
-    max-width: 460px;
+    max-width: 560px;
     background: #18181c;
     /* cinza topo cartão     */
     border: 1px solid #23232a;
@@ -46,6 +50,7 @@ h1 {
 
 /* campos ----------------------------------------------------------------- */
 input,
+textarea,
 select,
 button {
     appearance: none;
@@ -61,17 +66,47 @@ button {
 }
 
 input:focus,
+textarea:focus,
 select:focus {
     border-color: #4f46e5;
     /* roxo-indigo           */
 }
 
-input {
+input,
+textarea {
     margin-bottom: 14px;
+}
+
+textarea {
+    resize: vertical;
+    font-family: inherit;
+    line-height: 1.5;
 }
 
 select {
     margin-bottom: 20px;
+}
+
+/* downloads simultâneos -------------------------------------------------- */
+.parallel {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: .9rem;
+    color: #a1a1aa;
+}
+
+.parallel input {
+    width: 72px;
+    margin: 0;
+    padding: 8px 10px;
+    text-align: center;
+    appearance: auto;
+}
+
+.parallel small {
+    color: #71717a;
 }
 
 /* botão ------------------------------------------------------------------ */
@@ -96,6 +131,90 @@ button:active {
 button:disabled {
     opacity: .5;
     cursor: not-allowed;
+}
+
+/* lista de jobs ---------------------------------------------------------- */
+#jobs {
+    list-style: none;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.job {
+    background: #101014;
+    border: 1px solid #23232a;
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+.job-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.job-title {
+    flex: 1;
+    min-width: 0;
+    font-size: .9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.job-cancel {
+    width: auto;
+    padding: 2px 8px;
+    font-size: .8rem;
+    background: #2a2a33;
+    text-transform: none;
+}
+
+.job-cancel:hover {
+    background: #7f1d1d;
+    transform: none;
+}
+
+.job[data-state="done"] .bar-fill {
+    background: #22c55e;
+}
+
+.job[data-state="error"] .bar-fill,
+.job[data-state="canceled"] .bar-fill {
+    background: #52525b;
+}
+
+.job[data-state="error"] .job-info {
+    color: #f87171;
+}
+
+.job[data-state="queued"] {
+    opacity: .6;
+}
+
+.job .bar {
+    height: 10px;
+    background: #101014;
+    border: 1px solid #2a2a33;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #4f46e5, #7c3aed);
+    transition: width .3s ease;
+}
+
+.job-info {
+    margin-top: 8px;
+    font-size: .85rem;
+    color: #a1a1aa;
+    font-variant-numeric: tabular-nums;
 }
 
 /* status / mensagens ----------------------------------------------------- */
